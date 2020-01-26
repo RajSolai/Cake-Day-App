@@ -1,5 +1,8 @@
 {
   "name": "fluttercrud",
-  "integrations": {},
+  "integrations": {
+    "capacitor": {},
+    "cordova": {}
+  },
   "type": "angular"
 }

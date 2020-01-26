@@ -1,0 +1,45 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Add Friend</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div>
+    <h1 class="ion-text-center">Add New CakeDay</h1>
+  </div>
+  <div class="ion-padding">
+    <ion-list lines="full" class="ion-no-margin ion-no-margin">
+      <ion-item>
+        <ion-input
+      type="text"
+      [(ngModel)]="nametemp"
+      placeholder="Enter your friend's 💑 name"
+      autofocus="true"
+      autocapitalize="true"
+      clearInput
+      value="clear me"
+    ></ion-input>
+      </ion-item>
+      <br><br>
+      <ion-item>
+        <ion-input
+        type="text"
+        [(ngModel)]="bdaytemp"
+        placeholder="Enter the CakeDay 🎂 "
+        clearInput
+        value="clear me"
+      ></ion-input>  
+      </ion-item>
+    </ion-list>
+    <br><br>
+    <div>
+      <ion-button (click)="addData()" mode="ios" expand="block">
+        Add to CakeDay list
+      </ion-button>
+    </div>
+  </div>
+</ion-content>

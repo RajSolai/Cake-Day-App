@@ -1,14 +1,37 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>
-      Ionic Blank
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content>
-  <div class="ion-padding">
-    The world is your oyster.
-    <p>If you get lost, the <a target="_blank" rel="noopener" href="https://ionicframework.com/docs/">docs</a> will be your guide.</p>
+  <div>
+    <h1 class="ion-text-center">login for Cakes</h1>
   </div>
+  <div class="ion-padding">
+    <ion-list lines="full" class="ion-no-margin ion-no-margin">
+      <ion-item>
+        <ion-input
+      type="text"
+      [(ngModel)]="email"
+      placeholder="Enter your email"
+      autofocus="true"
+      autocapitalize="false"
+      clearInput
+      value="clear me"
+    ></ion-input>
+      </ion-item>
+      <br><br>
+      <ion-item>
+        <ion-input
+        type="password"
+        [(ngModel)]="password"
+        placeholder="Enter your password"
+        clearInput
+        value="clear me"
+      ></ion-input>  
+      </ion-item>
+    </ion-list>
+    <br><br>
+    <div>
+      <ion-button (click)="loginFunction()" mode="ios" expand="block">
+        Login
+      </ion-button>
+    </div>
+  </div>
+  <p align="center"><a href="#" [routerLink]='["/register"]'>create an account</a></p>
 </ion-content>

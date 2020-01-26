@@ -1,0 +1,8 @@
+{
+  "appId": "rf.gd.solairaj.cakedays",
+  "appName": "CakeDays",
+  "bundledWebRuntime": false,
+  "npmClient": "npm",
+  "webDir": "www",
+  "cordova": {}
+}

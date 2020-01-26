@@ -1,0 +1,14 @@
+.center {
+  margin-top: 60%;
+}
+ion-toolbar {
+  --background: #f35588;
+  --color: #ffffff;
+}
+
+ion-spinner {
+   --color: #3880ff;
+   display: block;
+   margin: auto;
+   margin-top: inherit;
+}
