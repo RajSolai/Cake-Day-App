@@ -1,36 +1,41 @@
 <ion-content>
+  <div class="spacer"></div>
   <div>
+    <h1 class="ion-text-center" style="font-size: 50px;">👶</h1>
     <h1 class="ion-text-center">Create new Cake Account</h1>
   </div>
   <div class="ion-padding">
     <ion-list lines="full" class="ion-no-margin ion-no-margin">
       <ion-item>
         <ion-input
-      type="text"
-      [(ngModel)]="email"
-      placeholder="Enter the new email address"
-      autofocus="true"
-      autocapitalize="true"
-      clearInput
-      value="clear me"
-    ></ion-input>
+          type="text"
+          [(ngModel)]="email"
+          placeholder="Enter the new email address"
+          autofocus="true"
+          autocapitalize="true"
+          clearInput
+          value="clear me"
+        ></ion-input>
       </ion-item>
-      <br><br>
+      <br /><br />
       <ion-item>
         <ion-input
-        type="password"
-        [(ngModel)]="password"
-        placeholder="Create a new password for your account"
-        clearInput
-        value="clear me"
-      ></ion-input>  
+          type="password"
+          [(ngModel)]="password"
+          placeholder="Create a new password for your account"
+          clearInput
+          value="clear me"
+        ></ion-input>
       </ion-item>
     </ion-list>
-    <br><br>
+    <br /><br />
     <div>
       <ion-button (click)="signIN()" mode="ios" expand="block">
         Create Cake
       </ion-button>
     </div>
+    <p align="center">
+      <a href="#" [routerLink]='["/home"]'>Have an account? Try logging in</a>
+    </p>
   </div>
 </ion-content>

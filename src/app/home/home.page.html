@@ -1,37 +1,47 @@
 <ion-content>
+  <div class="spacer"></div>
   <div>
+    <h1 class="ion-text-center" style="font-size: 50px;">🍰</h1>
     <h1 class="ion-text-center">login for Cakes</h1>
   </div>
   <div class="ion-padding">
+    <div *ngIf="isloading">
+      <ion-spinner name="crescent"></ion-spinner>
+    </div>
     <ion-list lines="full" class="ion-no-margin ion-no-margin">
       <ion-item>
         <ion-input
-      type="text"
-      [(ngModel)]="email"
-      placeholder="Enter your email"
-      autofocus="true"
-      autocapitalize="false"
-      clearInput
-      value="clear me"
-    ></ion-input>
+          type="text"
+          [(ngModel)]="email"
+          placeholder="Enter your email"
+          autofocus="true"
+          autocapitalize="false"
+          clearInput
+          value="clear me"
+        ></ion-input>
       </ion-item>
-      <br><br>
+      <br /><br />
       <ion-item>
         <ion-input
-        type="password"
-        [(ngModel)]="password"
-        placeholder="Enter your password"
-        clearInput
-        value="clear me"
-      ></ion-input>  
+          type="password"
+          [(ngModel)]="password"
+          placeholder="Enter your password"
+          clearInput
+          value="clear me"
+        ></ion-input>
       </ion-item>
     </ion-list>
-    <br><br>
+    <br /><br />
     <div>
       <ion-button (click)="loginFunction()" mode="ios" expand="block">
         Login
       </ion-button>
     </div>
   </div>
-  <p align="center"><a href="#" [routerLink]='["/register"]'>create an account</a></p>
+  <p align="center">
+    <a href="#" [routerLink]='["/register"]'>create an account</a>
+  </p>
+  <p align="center">
+    <a href="#" [routerLink]='["/login"]'>forgot password?</a>
+  </p>
 </ion-content>

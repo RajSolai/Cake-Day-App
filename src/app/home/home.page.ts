@@ -1,7 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { LoginService } from "../login.service";
-import { DataService } from "../data.service";
-import { Router } from "@angular/router";
+import { NavController, LoadingController } from "@ionic/angular";
 
 @Component({
   selector: "app-home",
@@ -11,15 +10,31 @@ import { Router } from "@angular/router";
 export class HomePage implements OnInit {
   email: string;
   password: string;
+  isloading: boolean = false;
   constructor(
     private login: LoginService,
-    private dataservice: DataService,
-    private router: Router
+    private router: NavController,
+    private loading: LoadingController
   ) {}
   ngOnInit(): void {}
-  loginFunction() {
-    this.login.signIn(this.email, this.password);
-    console.log(this.dataservice.UIDtoken);
-    this.router.navigate(["/addbday"])
+  /* loading controller code */
+  async presentLoading() {
+    const load = await this.loading.create({
+      message: "Loading",
+      duration: 2000
+    });
+    await load.present();
+  }
+  async loginFunction() {
+    this.presentLoading();
+    await this.login
+      .signIn(this.email, this.password)
+      .then(success => {
+        this.router.navigateRoot("/addbday");
+        this.loading.dismiss();
+      })
+      .catch(error => {
+        this.router.navigateRoot("/register");
+      });
   }
 }

@@ -2,8 +2,8 @@ import { Component, OnInit } from "@angular/core";
 import { AngularFirestore } from "@angular/fire/firestore";
 import { Storage } from "@ionic/storage";
 import { Router } from "@angular/router";
-import { DataService } from "../data.service";
 import { LoginService } from "../login.service";
+import { Observable } from "rxjs";
 
 @Component({
   selector: "app-addbday",
@@ -17,30 +17,35 @@ export class AddbdayPage implements OnInit {
     private firestore: AngularFirestore,
     private storage: Storage,
     private login: LoginService,
-    private navigator: Router,
-    private dataservice: DataService
+    private navigator: Router
   ) {}
   ngOnInit(): void {
     this.getData();
   }
-  getData(): void {
-    this.storage.get("uid").then(val => {
-      this.firestore
-        .doc("users/" + val)
-        .collection("birthdays")
-        .valueChanges()
-        .subscribe(res => {
-          this.isloading = false
-          this.bdays = res;
-          console.log(res);
-        });
-    });
+  getData() {
+    this.storage
+      .get("uid")
+      .then(val => {
+        console.log("the uid saved is" + val);
+        this.firestore
+          .doc("users/" + val)
+          .collection("birthdays")
+          .valueChanges()
+          .subscribe(res => {
+            this.bdays = res;
+            this.isloading = false;
+          });
+      })
+      .catch(error => {
+        alert("user not found");
+      });
   }
   getOut(): void {
-    this.login.logOut();
-    this.navigator.navigate(["/home"]);
+    this.login.logOut().then(success => {
+      this.navigator.navigate(["/home"]);
+    });
   }
-  nav(): void {
-    this.navigator.navigate(["/bdays"]);
+  Refresh(): void {
+    location.reload();
   }
 }

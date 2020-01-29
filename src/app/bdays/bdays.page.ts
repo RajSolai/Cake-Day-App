@@ -1,6 +1,5 @@
 import { Component, OnInit } from "@angular/core";
 import { AngularFirestore } from "@angular/fire/firestore";
-import { DataService } from "../data.service";
 import { Router } from "@angular/router";
 import { Storage } from "@ionic/storage";
 
@@ -15,7 +14,6 @@ export class BdaysPage implements OnInit {
   constructor(
     private firestore: AngularFirestore,
     private router: Router,
-    private dataservice: DataService,
     private storage: Storage
   ) {}
   ngOnInit(): void {}
@@ -28,8 +26,10 @@ export class BdaysPage implements OnInit {
       this.firestore
         .doc("users/" + val)
         .collection("birthdays")
-        .add(model);
-      this.router.navigate(["/addbday"]);
+        .add(model)
+        .then(success => {
+          this.router.navigate(["/addbday"]);
+        });
     });
   }
 }

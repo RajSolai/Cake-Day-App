@@ -1,6 +1,9 @@
 <ion-header>
   <ion-toolbar>
     <ion-buttons slot="end">
+      <ion-button (click)="Refresh()">
+        Refresh
+      </ion-button>
       <ion-button (click)="getOut()">
         Logout
       </ion-button>
@@ -12,7 +15,10 @@
 <ion-content>
   <div class="ion-padding">
     <div *ngIf="isloading">
-      <ion-progress-bar color="secondary" type="indeterminate"></ion-progress-bar>
+      <ion-progress-bar
+        color="secondary"
+        type="indeterminate"
+      ></ion-progress-bar>
     </div>
     <ion-list *ngFor="let bday of bdays">
       <ion-item-sliding>
@@ -26,10 +32,10 @@
         </ion-item-options>
       </ion-item-sliding>
     </ion-list>
-    <ion-fab vertical="bottom" horizontal="end" slot="fixed">
-      <ion-fab-button>
-        <ion-icon name="add" (click)="nav()"></ion-icon>
-      </ion-fab-button>
-    </ion-fab>
   </div>
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button [routerLink]="['/bdays']">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
 </ion-content>

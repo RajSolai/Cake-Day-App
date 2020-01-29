@@ -29,7 +29,8 @@ export class AppComponent {
       this.statusBar.styleDefault();
       this.splashScreen.hide();
       this.storage.get("uid").then(val => {
-        this.dataservice.saveUID(val);
+        // this.dataservice.saveUID(val);
+        console.log("the uid on load is"+val);
         if (val != null) {
           this.nav.navigate(["/addbday"]);
         } else {

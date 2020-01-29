@@ -1,6 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { LoginService } from "../login.service";
-import { Router } from "@angular/router";
+import { NavController } from "@ionic/angular";
 
 @Component({
   selector: "app-register",
@@ -10,10 +10,10 @@ import { Router } from "@angular/router";
 export class RegisterPage implements OnInit {
   email: string;
   password: string;
-  constructor(private login: LoginService,private nav : Router) {}
+  constructor(private login: LoginService,private nav : NavController) {}
   ngOnInit() {}
   signIN() {
     this.login.login(this.email, this.password);
-    this.nav.navigate(["/addbday"]);
+    this.nav.navigateRoot(["/addbday"]);
   }
 }

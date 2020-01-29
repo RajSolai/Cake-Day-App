@@ -1,9 +1,35 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>login</ion-title>
+    <ion-title>Reset</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="home"></ion-back-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-
+  <div>
+    <h1 class="ion-text-center">Reset Your Password</h1>
+  </div>
+  <div class="ion-padding">
+    <ion-list lines="full" class="ion-no-margin ion-no-margin">
+      <ion-item>
+        <ion-input
+      type="text"
+      [(ngModel)]="email"
+      placeholder="Enter your email address to reset"
+      autofocus="true"
+      autocapitalize="true"
+      clearInput
+      value="clear me"
+    ></ion-input>
+      </ion-item>
+    </ion-list>
+    <br><br>
+    <div>
+      <ion-button (click)="ResetPassword()" mode="ios" expand="block">
+        Reset Password
+      </ion-button>
+    </div>
+  </div>
 </ion-content>
