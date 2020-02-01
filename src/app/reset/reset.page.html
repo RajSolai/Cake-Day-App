@@ -1,0 +1,31 @@
+<ion-content>
+  <div class="spacer"></div>
+  <div>
+    <h1 class="ion-text-center" style="font-size: 50px;">🤔</h1>
+    <h1 class="ion-text-center">Reset Cake Password</h1>
+  </div>
+  <div class="ion-padding">
+    <ion-list lines="full" class="ion-no-margin ion-no-margin">
+      <ion-item>
+        <ion-input
+          type="text"
+          [(ngModel)]="email"
+          placeholder="Enter your email address to reset"
+          autofocus="true"
+          autocapitalize="true"
+          clearInput
+          value="clear me"
+        ></ion-input>
+      </ion-item>
+    </ion-list>
+    <br /><br />
+    <div>
+      <ion-button (click)="ResetPassword()" mode="ios" expand="block">
+        Reset Password
+      </ion-button>
+    </div>
+    <p  align="center" class="link-texts"  [routerLink]="['/home']">
+      Try Logging
+    </p>
+  </div>
+</ion-content>

@@ -3,7 +3,6 @@ import { AngularFirestore } from "@angular/fire/firestore";
 import { Storage } from "@ionic/storage";
 import { Router } from "@angular/router";
 import { LoginService } from "../login.service";
-import { Observable } from "rxjs";
 
 @Component({
   selector: "app-addbday",
@@ -42,7 +41,7 @@ export class AddbdayPage implements OnInit {
   }
   getOut(): void {
     this.login.logOut().then(success => {
-      this.navigator.navigate(["/home"]);
+      this.navigator.navigate(["/home"], { replaceUrl: true });
     });
   }
   Refresh(): void {

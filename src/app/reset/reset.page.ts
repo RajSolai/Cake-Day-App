@@ -3,8 +3,8 @@ import { LoginService } from "../login.service";
 
 @Component({
   selector: "app-login",
-  templateUrl: "./login.page.html",
-  styleUrls: ["./login.page.scss"]
+  templateUrl: "./reset.page.html",
+  styleUrls: ["./reset.page.scss"]
 })
 export class LoginPage implements OnInit {
   email: string;

@@ -16,10 +16,9 @@ import { AngularFirestoreModule } from "@angular/fire/firestore";
 import { AngularFireAuthModule } from "@angular/fire/auth";
 
 import { environment } from "../environments/environment";
-import { AddbdayPipe } from "./addbday.pipe";
 
 @NgModule({
-  declarations: [AppComponent, AddbdayPipe],
+  declarations: [AppComponent],
   entryComponents: [],
   imports: [
     BrowserModule,

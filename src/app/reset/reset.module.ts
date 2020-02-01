@@ -4,9 +4,9 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { LoginPageRoutingModule } from './login-routing.module';
+import { LoginPageRoutingModule } from './reset-routing.module'
 
-import { LoginPage } from './login.page';
+import { LoginPage } from './reset.page';
 
 @NgModule({
   imports: [

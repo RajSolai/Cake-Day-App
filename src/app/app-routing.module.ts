@@ -6,15 +6,15 @@ const routes: Routes = [
   { path: 'home', loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)},
   {
     path: 'addbday',
-    loadChildren: () => import('./addbday/addbday.module').then( m => m.AddbdayPageModule)
+    loadChildren: () => import('./allbday/addbday.module').then( m => m.AddbdayPageModule)
   },
   {
     path: 'bdays',
-    loadChildren: () => import('./bdays/bdays.module').then( m => m.BdaysPageModule)
+    loadChildren: () => import('./addbdays/bdays.module').then( m => m.BdaysPageModule)
   },
   {
     path: 'login',
-    loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)
+    loadChildren: () => import('./reset/reset.module').then( m => m.LoginPageModule)
   },
   {
     path: 'register',

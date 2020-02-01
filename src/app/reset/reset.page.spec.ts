@@ -1,7 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { IonicModule } from '@ionic/angular';
 
-import { LoginPage } from './login.page';
+import { LoginPage } from './reset.page';
 
 describe('LoginPage', () => {
   let component: LoginPage;

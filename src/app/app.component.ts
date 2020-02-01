@@ -1,11 +1,9 @@
 import { Component } from "@angular/core";
-
 import { Platform } from "@ionic/angular";
-import { SplashScreen } from "@ionic-native/splash-screen/ngx";
-import { StatusBar } from "@ionic-native/status-bar/ngx";
 import { Storage } from "@ionic/storage";
-import { Router } from "@angular/router";
-import { DataService } from "./data.service";
+import { NavController } from "@ionic/angular";
+import { Plugins, SplashScreen } from "@capacitor/core";
+const { StatusBar } = Plugins;
 
 @Component({
   selector: "app-root",
@@ -15,26 +13,23 @@ import { DataService } from "./data.service";
 export class AppComponent {
   constructor(
     private platform: Platform,
-    private splashScreen: SplashScreen,
-    private statusBar: StatusBar,
     private storage: Storage,
-    private nav: Router,
-    private dataservice: DataService
+    private nav: NavController
   ) {
     this.initializeApp();
   }
 
   initializeApp() {
     this.platform.ready().then(() => {
-      this.statusBar.styleDefault();
-      this.splashScreen.hide();
+      StatusBar.setBackgroundColor({ color: "#f35588" });
+      SplashScreen.hide();
       this.storage.get("uid").then(val => {
         // this.dataservice.saveUID(val);
-        console.log("the uid on load is"+val);
+        console.log("the uid on load is" + val);
         if (val != null) {
-          this.nav.navigate(["/addbday"]);
+          this.nav.navigateRoot(["/addbday"], { replaceUrl: true });
         } else {
-          this.nav.navigate(["/home"]);
+          this.nav.navigateRoot(["/home"], { replaceUrl: true });
         }
       });
     });

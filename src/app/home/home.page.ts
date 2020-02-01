@@ -30,7 +30,7 @@ export class HomePage implements OnInit {
     await this.login
       .signIn(this.email, this.password)
       .then(success => {
-        this.router.navigateRoot("/addbday");
+        this.router.navigateRoot("/addbday", { replaceUrl: true });
         this.loading.dismiss();
       })
       .catch(error => {

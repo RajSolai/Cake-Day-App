@@ -7,15 +7,29 @@ ion-toolbar {
 }
 
 ion-spinner {
-   --color: #3880ff;
-   display: block;
-   margin: auto;
-   margin-top: inherit;
+  --color: #3880ff;
+  display: block;
+  margin: auto;
+  margin-top: inherit;
 }
-a{
+a {
   text-decoration-style: none;
 }
 
-.spacer{
+.spacer {
   padding: 75px;
+}
+
+.link-texts {
+  color: #f35588;
+  outline: none;
+}
+
+.link-texts:focus {
+  color: #f35588;
+  outline: none;
+}
+
+.add-bday-fab:focus {
+  outline: none;
 }
