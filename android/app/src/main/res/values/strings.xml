@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='utf-8'?>
 <resources>
-    <string name="app_name">CakeDays</string>
-    <string name="title_activity_main">CakeDays</string>
+    <string name="app_name">Cake Days</string>
+    <string name="title_activity_main">Cake Days</string>
     <string name="package_name">rf.gd.solairaj.cakedays</string>
     <string name="custom_url_scheme">rf.gd.solairaj.cakedays</string>
 </resources>

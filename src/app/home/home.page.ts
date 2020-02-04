@@ -1,6 +1,11 @@
 import { Component, OnInit } from "@angular/core";
 import { LoginService } from "../login.service";
-import { NavController, LoadingController } from "@ionic/angular";
+import {
+  NavController,
+  LoadingController,
+  ToastController,
+  Platform
+} from "@ionic/angular";
 
 @Component({
   selector: "app-home",
@@ -11,13 +16,25 @@ export class HomePage implements OnInit {
   email: string;
   password: string;
   isloading: boolean = false;
+  counter: number = 0;
   constructor(
     private login: LoginService,
     private router: NavController,
-    private loading: LoadingController
+    private loading: LoadingController,
+    private platform: Platform,
+    private toaster: ToastController
   ) {}
-  ngOnInit(): void {}
-  /* loading controller code */
+  ngOnInit(): void {
+    this.exitApp();
+  }
+  async presentToast() {
+    const toast = await this.toaster.create({
+      message: "Tap again to exit app",
+      showCloseButton: true,
+      duration: 2000
+    });
+    toast.present();
+  }
   async presentLoading() {
     const load = await this.loading.create({
       message: "Loading",
@@ -25,6 +42,7 @@ export class HomePage implements OnInit {
     });
     await load.present();
   }
+  /* loading controller code */
   async loginFunction() {
     this.presentLoading();
     await this.login
@@ -36,5 +54,18 @@ export class HomePage implements OnInit {
       .catch(error => {
         this.router.navigateRoot("/register");
       });
+  }
+  exitApp(): void {
+    this.platform.backButton.subscribe(() => {
+      if (this.counter == 0) {
+        this.counter++;
+        this.presentToast();
+        setTimeout(() => {
+          this.counter = 0;
+        }, 2000);
+      } else {
+        navigator["app"].exitApp();
+      }
+    });
   }
 }

@@ -2,6 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { AngularFirestore } from "@angular/fire/firestore";
 import { Storage } from "@ionic/storage";
 import { Router } from "@angular/router";
+import { ToastController, Platform } from "@ionic/angular";
 import { LoginService } from "../login.service";
 
 @Component({
@@ -12,11 +13,14 @@ import { LoginService } from "../login.service";
 export class AddbdayPage implements OnInit {
   isloading: boolean = true;
   bdays: any;
+  counter: number = 0;
   constructor(
     private firestore: AngularFirestore,
     private storage: Storage,
     private login: LoginService,
-    private navigator: Router
+    private navigator: Router,
+    private toaster: ToastController,
+    private platform: Platform
   ) {}
   ngOnInit(): void {
     this.getData();
@@ -46,5 +50,26 @@ export class AddbdayPage implements OnInit {
   }
   Refresh(): void {
     location.reload();
+  }
+  async presentToast() {
+    const toast = await this.toaster.create({
+      message: "Tap again to exit app",
+      showCloseButton: true,
+      duration: 2000
+    });
+    toast.present();
+  }
+  exitApp(): void {
+    this.platform.backButton.subscribe(() => {
+      if (this.counter == 0) {
+        this.counter++;
+        this.presentToast();
+        setTimeout(() => {
+          this.counter = 0;
+        }, 2000);
+      } else {
+        navigator["app"].exitApp();
+      }
+    });
   }
 }
