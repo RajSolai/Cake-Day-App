@@ -3,7 +3,7 @@ import { Platform } from "@ionic/angular";
 import { Storage } from "@ionic/storage";
 import { NavController } from "@ionic/angular";
 import { Plugins, SplashScreen } from "@capacitor/core";
-const { StatusBar } = Plugins;
+const { StatusBar, LocalNotifications } = Plugins;
 
 @Component({
   selector: "app-root",
@@ -32,6 +32,22 @@ export class AppComponent {
           this.nav.navigateRoot(["/home"], { replaceUrl: true });
         }
       });
+    });
+  }
+  notifyUsers(): void {
+    LocalNotifications.schedule({
+      notifications: [
+        {
+          title: "Hey Cake Users",
+          body: "Check out todays Cakes !",
+          id: 1,
+          schedule: { every: "day", on: { hour: 8, minute: 0 } },
+          sound: "",
+          attachments: null,
+          actionTypeId: null,
+          extra: null
+        }
+      ]
     });
   }
 }

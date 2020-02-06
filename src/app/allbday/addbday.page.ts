@@ -4,6 +4,7 @@ import { Storage } from "@ionic/storage";
 import { Router } from "@angular/router";
 import { ToastController, Platform } from "@ionic/angular";
 import { LoginService } from "../login.service";
+import { AngularFireAuth } from "@angular/fire/auth";
 
 @Component({
   selector: "app-addbday",
@@ -20,7 +21,8 @@ export class AddbdayPage implements OnInit {
     private login: LoginService,
     private navigator: Router,
     private toaster: ToastController,
-    private platform: Platform
+    private platform: Platform,
+    private auth: AngularFireAuth
   ) {}
   ngOnInit(): void {
     this.getData();
@@ -48,12 +50,22 @@ export class AddbdayPage implements OnInit {
       this.navigator.navigate(["/home"], { replaceUrl: true });
     });
   }
+  deleteBday(): void {
+    this.firestore
+      .doc("users/" + this.auth.auth.currentUser.uid)
+      .collection("birthdays")
+      .doc("")
+      .delete()
+      .then(pass => {
+        this.presentToast("Cake 🍰 deleted");
+      });
+  }
   Refresh(): void {
     location.reload();
   }
-  async presentToast() {
+  async presentToast(msg) {
     const toast = await this.toaster.create({
-      message: "Tap again to exit app",
+      message: msg,
       showCloseButton: true,
       duration: 2000
     });
@@ -63,7 +75,7 @@ export class AddbdayPage implements OnInit {
     this.platform.backButton.subscribe(() => {
       if (this.counter == 0) {
         this.counter++;
-        this.presentToast();
+        this.presentToast("Tap again to exit the app");
         setTimeout(() => {
           this.counter = 0;
         }, 2000);

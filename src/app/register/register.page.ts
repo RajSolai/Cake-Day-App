@@ -10,10 +10,11 @@ import { NavController } from "@ionic/angular";
 export class RegisterPage implements OnInit {
   email: string;
   password: string;
-  constructor(private login: LoginService,private nav : NavController) {}
+  nickName: string;
+  constructor(private login: LoginService, private nav: NavController) {}
   ngOnInit() {}
   signIN() {
-    this.login.login(this.email, this.password);
+    this.login.login(this.email, this.password, this.nickName);
     this.nav.navigateRoot(["/addbday"]);
   }
 }

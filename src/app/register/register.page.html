@@ -9,10 +9,22 @@
       <ion-item>
         <ion-input
           type="text"
+          [(ngModel)]="nickName"
+          placeholder="Enter your Nick Name"
+          autofocus="true"
+          autocapitalize="true"
+          clearInput
+          value="clear me"
+        ></ion-input>
+      </ion-item>
+      <br /><br />
+      <ion-item>
+        <ion-input
+          type="text"
           [(ngModel)]="email"
           placeholder="Enter the new email address"
           autofocus="true"
-          autocapitalize="true"
+          autocapitalize="false"
           clearInput
           value="clear me"
         ></ion-input>
@@ -34,6 +46,8 @@
         Create Cake
       </ion-button>
     </div>
-    <p align="center" class="link-texts" [routerLink]='["/home"]'>have an account? Try logging in</p>
+    <p align="center" class="link-texts" [routerLink]='["/home"]'>
+      have an account? Try logging in
+    </p>
   </div>
 </ion-content>
