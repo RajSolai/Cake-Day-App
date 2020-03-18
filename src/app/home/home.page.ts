@@ -30,7 +30,6 @@ export class HomePage implements OnInit {
   async presentToast() {
     const toast = await this.toaster.create({
       message: "Tap again to exit app",
-      showCloseButton: true,
       duration: 2000
     });
     toast.present();

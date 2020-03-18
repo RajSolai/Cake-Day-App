@@ -45,7 +45,7 @@ export class LoginService {
     });
     await alert.present();
   }
-  /* login with email id and password */
+  /* Create new account with email id and password */
   login(email, password, nickName) {
     return this.auth.auth
       .createUserWithEmailAndPassword(email, password)
@@ -60,6 +60,12 @@ export class LoginService {
         console.dir(error);
         if (error.code == "auth/argument-error") {
           console.log("please enter the email");
+        }else if(error.code =="auth/weak-password"){
+          this.presentAlertCreateUser("The password must contain atleast 6 characters");
+        }else if(error.code =="auth/invalid-email"){
+          this.presentAlertCreateUser("Please enter the correct email id");
+        }else if(error.code == "auth/email-already-in-use"){
+          this.presentAlertCreateUser("The email address is already in use by another account");
         } else if (error.code == "auth/user-not-found") {
           console.log("user not found");
         } else {

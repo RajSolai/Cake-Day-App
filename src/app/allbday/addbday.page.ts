@@ -66,7 +66,6 @@ export class AddbdayPage implements OnInit {
   async presentToast(msg) {
     const toast = await this.toaster.create({
       message: msg,
-      showCloseButton: true,
       duration: 2000
     });
     toast.present();
