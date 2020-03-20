@@ -3,9 +3,9 @@ apply plugin: 'com.android.application'
 android {
     compileSdkVersion 28
     defaultConfig {
-        applicationId "rf.gd.solairaj.cakedays"
+        applicationId "io.github.rajsolai.cakedays"
         minSdkVersion 21
-        targetSdkVersion 28
+        targetSdkVersion 29
         multiDexEnabled true
         versionCode 1
         versionName "1.0"

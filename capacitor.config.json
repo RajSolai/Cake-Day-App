@@ -1,5 +1,5 @@
 {
-  "appId": "rf.gd.solairaj.cakedays",
+  "appId": "io.github.rajsolai.cakedays",
   "appName": "Cake Days",
   "bundledWebRuntime": false,
   "npmClient": "npm",
@@ -13,7 +13,7 @@
       "FadeSplashScreenDuration": "300",
       "SplashShowOnlyFirstTime": "false",
       "SplashScreen": "screen",
-      "SplashScreenDelay": "2000"
+      "SplashScreenDelay": "3000"
     }
   }
 }

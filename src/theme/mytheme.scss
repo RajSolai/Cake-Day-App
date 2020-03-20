@@ -1,9 +1,18 @@
+
 .center {
   margin-top: 60%;
 }
+
 ion-toolbar {
-  --background: #f35588;
+  --background: var(--ion-app-primary);
   --color: #ffffff;
+}
+
+
+
+ion-button {
+  --background: #f35588;
+  --background-activated: #f35588;
 }
 
 ion-spinner {
@@ -21,12 +30,13 @@ a {
 }
 
 .link-texts {
-  color: #f35588;
+  color: var(--primary-pink);
+  font-weight: bolder;
   outline: none;
 }
 
 .link-texts:focus {
-  color: #f35588;
+  color: var(--primary-pink);
   outline: none;
 }
 
@@ -47,3 +57,5 @@ a {
 .loading {
   text-align: center;
 }
+
+

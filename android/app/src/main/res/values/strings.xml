@@ -2,6 +2,6 @@
 <resources>
     <string name="app_name">Cake Days</string>
     <string name="title_activity_main">Cake Days</string>
-    <string name="package_name">rf.gd.solairaj.cakedays</string>
-    <string name="custom_url_scheme">rf.gd.solairaj.cakedays</string>
+    <string name="package_name">io.github.rajsolai.cakedays</string>
+    <string name="custom_url_scheme">io.github.rajsolai.cakedays</string>
 </resources>
